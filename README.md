@@ -6,7 +6,10 @@ Script em bash para criar arquivos DMG a partir de pastas no macOS.
 
 ## Como usar
 
-1. Clone este repositório
+1. Clone este repositório:
+   ```bash
+   git clone https://github.com/maxpicelli/DMG-Creator-Folder-PT-BR.git
+   ```
 2. Dê permissão de execução ao script: `chmod +x criar-dmg.sh`
 3. Execute o script passando o caminho da pasta: `./criar-dmg.sh /caminho/para/sua/pasta`
 

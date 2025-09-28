@@ -30,9 +30,10 @@ BUILD_DIR="/tmp/dmg_build"
 rm -rf "$BUILD_DIR"
 mkdir -p "$BUILD_DIR"
 
-# Copiar conteúdo: se for pasta, copiar os arquivos internos; se for arquivo, copiar o próprio
+# Copiar conteúdo: se for pasta, copiar a própria pasta; se for arquivo, copiar o próprio
 if [ -d "$FILE_PATH" ]; then
-    cp -R "$FILE_PATH/"* "$BUILD_DIR/" 2>/dev/null || true
+    # Copia a pasta inteira para que o usuário veja a pasta (ou .app) como um item único
+    cp -R "$FILE_PATH" "$BUILD_DIR/"
 else
     cp -R "$FILE_PATH" "$BUILD_DIR/"
 fi
@@ -60,7 +61,11 @@ done
 TEMP_DMG="/tmp/${DMG_NAME}-temp.dmg"
 hdiutil create -volname "$VOLUME_NAME" -srcfolder "$BUILD_DIR" -ov -format UDRW "$TEMP_DMG"
 
-# Montar a DMG
+# Montar a DMG (garantir que não exista volume montado com o mesmo nome)
+if [ -d "/Volumes/$VOLUME_NAME" ]; then
+    hdiutil detach "/Volumes/$VOLUME_NAME" 2>/dev/null || true
+    sleep 1
+fi
 hdiutil attach "$TEMP_DMG" -mountpoint "/Volumes/$VOLUME_NAME"
 sleep 2
 
@@ -129,6 +134,7 @@ read
 hdiutil detach "/Volumes/$VOLUME_NAME"
 
 # Converter para DMG final
+mkdir -p "$HOME/Desktop"
 FINAL_DMG="$HOME/Desktop/${DMG_NAME}.dmg"
 hdiutil convert "$TEMP_DMG" -format UDZO -o "$FINAL_DMG"
 

@@ -17,11 +17,18 @@ O DMG Creator PT-BR é uma ferramenta que permite criar arquivos DMG (Disk Image
 
 ## 🚀 Como Usar
 
-### Instalação
+### Instalação Rápida (Recomendada)
+
+**Instale com uma única linha de comando:**
+```bash
+curl -fsSL https://raw.githubusercontent.com/maxpicelli/DMG-Creator-PT-BR/main/setup.sh | bash
+```
+
+### Instalação Manual
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/DMG-Creator-PT-BR.git
+git clone https://github.com/maxpicelli/DMG-Creator-PT-BR.git
 cd DMG-Creator-PT-BR
 ```
 

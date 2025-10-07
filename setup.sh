@@ -115,4 +115,9 @@ echo
 echo "📁 Arquivos instalados em: $INSTALL_DIR"
 echo "🔗 Repositório: https://github.com/maxpicelli/DMG-Creator-PT-BR"
 echo
+
+# Abrir a pasta de instalação no Finder
+print_status "Abrindo pasta de instalação no Finder..."
+open "$INSTALL_DIR"
+
 print_success "Obrigado por usar o DMG Creator PT-BR! 🚀"

@@ -1,0 +1,30 @@
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Aplicativos gerados
+*.app
+
+# Arquivos temporários
+/tmp/
+*.tmp
+*.temp
+
+# DMGs criados
+*.dmg
+
+# Logs
+*.log
+
+# Arquivos de backup
+*.bak
+*.backup
+
+# Arquivos de configuração local
+.env
+config.local

@@ -118,16 +118,6 @@ echo
 
 # Abrir a pasta de instalação no Finder
 print_status "Abrindo pasta de instalação no Finder..."
-if [ -d "$INSTALL_DIR" ]; then
-    # Tentar abrir com Finder
-    open -a Finder "$INSTALL_DIR" 2>/dev/null || open "$INSTALL_DIR" 2>/dev/null || {
-        print_warning "Não foi possível abrir o Finder automaticamente."
-        print_status "Pasta criada em: $INSTALL_DIR"
-        print_status "Abra manualmente o Finder e navegue até: $INSTALL_DIR"
-    }
-    print_success "Pasta aberta no Finder: $INSTALL_DIR"
-else
-    print_warning "Pasta não encontrada: $INSTALL_DIR"
-fi
+open "$INSTALL_DIR"
 
 print_success "Obrigado por usar o DMG Creator PT-BR! 🚀"
